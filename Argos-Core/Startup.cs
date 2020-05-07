@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Argos.Core.Data;
+using Argos.Core.Repository.IRepository.Master;
+using Argos.Core.Repository.Master;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,6 +32,8 @@ namespace Argos_Core
             services.AddDbContextPool<ArgosDbContext>(opt => {
                 opt.UseSqlServer(Configuration.GetConnectionString("ArgosCoreDB"), x => x.MigrationsAssembly("Argos.Core.Data"));
             });
+
+            services.AddScoped<IFleetRepository, FleetRepository>();
             services.AddControllers();
         }
 

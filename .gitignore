@@ -12,6 +12,10 @@
 /Argos.Core.Model/obj
 /Argos.Core.API/obj
 /Argos.Core.API/bin
+/Argos.Core.Repository/obj
+/Argos.Core.Repository/bin
+/Argos.Core.Service/obj
+/Argos.Core.Service/bin
 # Only exists if Bazel was run
 /bazel-out
 

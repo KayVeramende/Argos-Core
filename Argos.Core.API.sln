@@ -5,9 +5,13 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Argos.Core.API", "Argos-Core\Argos.Core.API.csproj", "{4BAE5646-E975-4D51-B4B0-72A0671A8453}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Argos.Core.Data", "Argos.Core.Data\Argos.Core.Data.csproj", "{43F8B6BE-2B72-47B6-9402-001A9B617C2E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Argos.Core.Data", "Argos.Core.Data\Argos.Core.Data.csproj", "{43F8B6BE-2B72-47B6-9402-001A9B617C2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Argos.Core.Model", "Argos.Core.Model\Argos.Core.Model.csproj", "{3D138BAE-CA4F-4017-8FD5-3602EF710DD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Argos.Core.Model", "Argos.Core.Model\Argos.Core.Model.csproj", "{3D138BAE-CA4F-4017-8FD5-3602EF710DD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Argos.Core.Repository", "Argos.Core.Repository\Argos.Core.Repository.csproj", "{34698D18-C35A-4B4C-BCAF-88BA5ADF5997}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Argos.Core.Service", "Argos.Core.Service\Argos.Core.Service.csproj", "{28092585-6256-4E69-BBFA-11261C8C8CD1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{3D138BAE-CA4F-4017-8FD5-3602EF710DD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D138BAE-CA4F-4017-8FD5-3602EF710DD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D138BAE-CA4F-4017-8FD5-3602EF710DD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34698D18-C35A-4B4C-BCAF-88BA5ADF5997}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34698D18-C35A-4B4C-BCAF-88BA5ADF5997}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34698D18-C35A-4B4C-BCAF-88BA5ADF5997}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34698D18-C35A-4B4C-BCAF-88BA5ADF5997}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28092585-6256-4E69-BBFA-11261C8C8CD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28092585-6256-4E69-BBFA-11261C8C8CD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28092585-6256-4E69-BBFA-11261C8C8CD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28092585-6256-4E69-BBFA-11261C8C8CD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
