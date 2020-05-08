@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,12 +30,17 @@ namespace Argos_Core
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContextPool<ArgosDbContext>(opt => {
+            services.AddDbContextPool<ArgosDbContext>(opt =>
+            {
                 opt.UseSqlServer(Configuration.GetConnectionString("ArgosCoreDB"), x => x.MigrationsAssembly("Argos.Core.Data"));
             });
 
             services.AddScoped<IFleetRepository, FleetRepository>();
-            services.AddControllers();
+            services.AddControllers(setUp =>
+            {
+                setUp.ReturnHttpNotAcceptable = true;
+                setUp.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter());
+            }).AddXmlSerializerFormatters();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

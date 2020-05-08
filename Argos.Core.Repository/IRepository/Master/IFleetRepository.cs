@@ -9,6 +9,7 @@ namespace Argos.Core.Repository.IRepository.Master
     {
         Guid Add(Fleet fleet);
         IEnumerable<Fleet> GetAll();
-        void Get(Guid id);
+        Fleet Get(Guid id);
+        bool Exist(Guid id);
     }
 }

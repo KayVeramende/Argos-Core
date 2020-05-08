@@ -8,8 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Argos_Core.Controllers.Master
 {
-    [Route("api/[controller]")]
+    
     [ApiController]
+    [Route("api/fleets")]
     public class FleetController : ControllerBase
     {
         private readonly IFleetRepository _fleetRepository;
@@ -19,10 +20,21 @@ namespace Argos_Core.Controllers.Master
             _fleetRepository = fleetRepository;
         }
 
+        [HttpGet]
         public IActionResult GetFleets() 
         {
             var fleet = _fleetRepository.GetAll();
-            return new JsonResult(fleet.ToList());
+            return Ok(fleet.ToList());
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetFleet(Guid id) 
+        {
+            if (!_fleetRepository.Exist(id)) return NotFound();
+            var fleet = _fleetRepository.Get(id);
+            return Ok(fleet);
+        }
+
+        
     }
 }

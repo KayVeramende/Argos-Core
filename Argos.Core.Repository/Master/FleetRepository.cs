@@ -24,9 +24,14 @@ namespace Argos.Core.Repository.Master
             return fleet.Id;
         }
 
-        public void Get(Guid id)
+        public bool Exist(Guid id)
         {
-            throw new NotImplementedException();
+            return _context.Fleets.Any(x => x.Id.Equals(id));
+        }
+
+        public Fleet Get(Guid id)
+        {
+            return _context.Fleets.Find(id);
         }
 
         public IEnumerable<Fleet> GetAll()
