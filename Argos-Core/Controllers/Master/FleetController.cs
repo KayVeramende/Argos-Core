@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using Argos.Core.Model.Master;
 using Argos.Core.Repository.IRepository.Master;
-using Microsoft.AspNetCore.Http;
+using Argos_Core.View;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Argos_Core.Controllers.Master
@@ -14,17 +15,20 @@ namespace Argos_Core.Controllers.Master
     public class FleetController : ControllerBase
     {
         private readonly IFleetRepository _fleetRepository;
+        private readonly IMapper _mapper;
 
-        public FleetController(IFleetRepository fleetRepository)
+        public FleetController(IFleetRepository fleetRepository, 
+            IMapper mapper)
         {
             _fleetRepository = fleetRepository;
+            _mapper = mapper;
         }
 
         [HttpGet]
-        public IActionResult GetFleets() 
+        public ActionResult<IEnumerable<FleetViewModel>> GetFleets() 
         {
             var fleet = _fleetRepository.GetAll();
-            return Ok(fleet.ToList());
+            return Ok(_mapper.Map<IEnumerable<FleetViewModel>>(fleet));
         }
 
         [HttpGet("{id}")]
@@ -32,7 +36,7 @@ namespace Argos_Core.Controllers.Master
         {
             if (!_fleetRepository.Exist(id)) return NotFound();
             var fleet = _fleetRepository.Get(id);
-            return Ok(fleet);
+            return Ok(_mapper.Map<FleetViewModel>(fleet));
         }
 
         

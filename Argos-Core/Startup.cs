@@ -1,20 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Argos.Core.Data;
 using Argos.Core.Repository.IRepository.Master;
 using Argos.Core.Repository.Master;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using System;
 
 namespace Argos_Core
 {
@@ -36,11 +31,16 @@ namespace Argos_Core
             });
 
             services.AddScoped<IFleetRepository, FleetRepository>();
+
+            //Content negotiation 
             services.AddControllers(setUp =>
             {
                 setUp.ReturnHttpNotAcceptable = true;
                 setUp.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter());
             }).AddXmlSerializerFormatters();
+
+            //Adding automapper 
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
